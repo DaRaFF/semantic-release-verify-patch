@@ -4,7 +4,7 @@
   "description": "A implementation of semantic-release's verifyRelease extension point.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "exit 0",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
