@@ -1,0 +1,19 @@
+{
+  "name": "semantic-release-verify-patch",
+  "version": "1.0.0",
+  "description": "A implementation of semantic-release's verifyRelease extension point.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaRaFF/semantic-release-verify-patch.git"
+  },
+  "author": "Ralph Meier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaRaFF/semantic-release-verify-patch/issues"
+  },
+  "homepage": "https://github.com/DaRaFF/semantic-release-verify-patch#readme"
+}
