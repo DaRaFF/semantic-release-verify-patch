@@ -1,4 +1,8 @@
-cache: [".npm"]
+clone:
+  git:
+    image: plugins/git
+    depth: 50
+    tags: true
 
 pipeline:
   eslint:
@@ -10,7 +14,9 @@ pipeline:
     image: node
     commands: ["npm install", "npm run test:ci -s"]
 
-  publish:
-    group: build
+  release:
+    group: publish
     image: marcbachmann/semantic-release:15.1.3
-    secrets: [gh_token, npm_token]
+    secrets: [gh_token]
+    when:
+      event: push
