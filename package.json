@@ -28,7 +28,6 @@
     "semantic-release": "v15.1.3"
   },
   "release": {
-    "npmPublish": false,
     "verifyConditions": [
       "@semantic-release/github"
     ],

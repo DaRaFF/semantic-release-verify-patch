@@ -17,4 +17,4 @@ pipeline:
   publish:
     group: build
     image: marcbachmann/semantic-release:15.1.3
-    secrets: [gh_token]
+    secrets: [gh_token, npm_token]
