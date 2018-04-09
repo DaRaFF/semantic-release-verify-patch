@@ -2,7 +2,6 @@ const envCi = require('env-ci')
 const SRError = require('@semantic-release/error')
 
 module.exports = (options, config) => {
-  console.log(envCi())
   const {branch} = envCi()
   const type = (config && config.nextRelease && config.nextRelease.type) || ''
 
