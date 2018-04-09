@@ -4,8 +4,8 @@
   "description": "A implementation of semantic-release's verifyRelease extension point.",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "eslint . && node test/index.js",
+    "test:ci": "node test/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/DaRaFF/semantic-release-verify-patch#readme",
   "devDependencies": {
-    "semantic-release": "^7.0.2"
+    "eslint": "^4.18.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "semantic-release": "^v15.1.5"
   }
 }
