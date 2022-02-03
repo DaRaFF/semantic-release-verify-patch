@@ -1,20 +1,27 @@
+---
+kind: pipeline
+type: docker
+name: lint
+
 clone:
-  git:
-    image: plugins/git
-    depth: 50
-    tags: true
+  depth: 100
 
-pipeline:
-  eslint:
-    image: marcbachmann/eslint:4.19.0
-    group: test
+steps:
+- name: eslint
+  image: marcbachmann/eslint:8.0.1
+  when: {event: [push]}
+  depends_on: []
 
-  test:
-    group: test
-    image: node
-    commands: ["npm install", "npm run test:ci -s"]
+- name: test
+  image: livingdocs/server-base:14.4
+  commands: ["npm ci", "npm run test:ci -s"]
+  depends_on: []
 
-  publish:
-    group: build
-    image: marcbachmann/semantic-release:15.1.3
-    secrets: [gh_token, npm_token]
+- name: release
+  image: livingdocs/semantic-release:v1.2.2
+  environment:
+    GH_TOKEN:
+      from_secret: gh_token
+    NPM_TOKEN:
+      from_secret: npm_token
+  depends_on: [eslint, test]
