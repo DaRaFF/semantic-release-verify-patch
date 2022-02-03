@@ -1,11 +1,11 @@
 const assert = require('assert')
-const verifyPatch = require('../index')
+const verifyPatch = require('../index').verifyRelease
 const options = {applyRegex: '^release-'}
 // set DRONE to pretend to be a travis environment
 process.env.DRONE = true
 
 // initial commit
-let configInitial = {
+const configInitial = {
   nextRelease: {
     type: 'initial'
   }
@@ -18,7 +18,7 @@ assert.equal(
 )
 
 // patch commit
-let configPatch = {
+const configPatch = {
   nextRelease: {
     type: 'patch'
   }
@@ -31,7 +31,7 @@ assert.equal(
 )
 
 // minor commit
-let configMinor = {
+const configMinor = {
   nextRelease: {
     type: 'minor'
   }
@@ -43,7 +43,7 @@ assert.throws(
 )
 
 // major commit
-let configMajor = {
+const configMajor = {
   nextRelease: {
     type: 'major'
   }
@@ -55,7 +55,7 @@ assert.throws(
 )
 
 // config is empty
-let configEmpty = {}
+const configEmpty = {}
 process.env.DRONE_BRANCH = 'release-2018-01'
 assert.throws(
   verifyPatch.bind(null, options, configEmpty),
@@ -63,7 +63,7 @@ assert.throws(
 )
 
 // major commit is allowed on any branch which does not start with 'release-'
-let configMajorAllowed = {
+const configMajorAllowed = {
   nextRelease: {
     type: 'major'
   }
