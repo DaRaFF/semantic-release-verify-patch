@@ -19,7 +19,7 @@
   "homepage": "https://github.com/DaRaFF/semantic-release-verify-patch#readme",
   "dependencies": {
     "@semantic-release/error": "^3.0.0",
-    "env-ci": "^1.6.0"
+    "env-ci": "^9.1.1"
   },
   "devDependencies": {
     "eslint": "^8.0.1"
